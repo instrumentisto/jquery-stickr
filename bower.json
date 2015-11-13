@@ -1,0 +1,30 @@
+{
+  "name": "jquery-stickr",
+  "version": "0.0.1",
+  "homepage": "https://github.com/instrumentisto/jquery-stickr",
+  "authors": [
+    "Instrumentisto Team <https://github.com/instrumentisto>"
+  ],
+  "description": "jQuery plugin that allows to create lightweight stickers on HTML page",
+  "main": [
+    "jquery.stickr.min.js",
+    "jquery.stickr.min.css"
+  ],
+  "keywords": [
+    "jquery",
+    "jquery-sticker",
+    "jquery-stickr",
+    "notification",
+    "sticker",
+    "stickr",
+    "sticky"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "demo.html"
+  ],
+  "dependencies": {
+    "jquery": ">= 1.4.2"
+  }
+}
