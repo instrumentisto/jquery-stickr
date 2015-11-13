@@ -4,19 +4,127 @@
   <script src="http://code.jquery.com/jquery-latest.min.js"></script>
   <script src="jquery.stickr.js"></script>
   <link rel="stylesheet" href="jquery.stickr.css">
-</head>
-<body>
+
+  <style>
+    ul {
+      display: block;
+      width: 60%;
+      margin: 40px auto;
+      padding: 0;
+    }
+    li {
+      list-style-type: none;
+      text-align: center;
+      padding: 10px 0;
+      vertical-align: middle;
+    }
+    li:not(:last-child) {
+      border-bottom: 1px solid #ddd;
+    }
+    li pre {
+      margin: 0;
+      display: inline-block;
+      text-align: start;
+    }
+    button {
+      display: block;
+      margin: 0 auto;
+      cursor: pointer;
+    }
+    
+    .fady {
+      transition: opacity .7s ease;
+      opacity: 1;
+    }
+    .fady.faded {
+      opacity: 0;
+    }
+    #another-stickrs {
+      left: auto;
+      right: 10px;
+    }
+    #my-stickrs {
+      width: 300px;
+      left: 50%;
+      margin-left: -150px;
+    }
+    #my-stickrs .jq-stickr {
+      width: auto;
+    }
+  </style>
+
   <script>
     $(function() {
-      $.stickr({
-        text: 'I am first sticked sticker!',
-        sticked: true
-      });
-      $.stickr({
-        text: 'I am second sticked sticker!',
-        sticked: true
+      $('body > ul > li > button').click(function() {
+        var source = $(this).prev('pre').text();
+        eval(source);
       });
     });
   </script>
+</head>
+<body>
+  <ul>
+    <li>
+      <pre>
+$.stickr({message: 'I am simple default sticker'});
+      </pre>
+      <button>Try me!</button>
+    </li>
+    <li>
+      <pre>
+$.stickr({
+  message: 'I live only 5 seconds',
+  ttl: 5000
+});
+      </pre>
+      <button>Try me!</button>
+    </li>
+    <li>
+      <pre>
+$.stickr({
+  message: 'I live 10 seconds and you cannot close me',
+  ttl: 10000,
+  withCloseButton: false
+});
+      </pre>
+      <button>Try me!</button>
+    </li>
+    <li>
+      <pre>
+$.stickr({
+  message: 'I am pretty fady one',
+  classes: 'fady faded',
+  afterOpen: function($me) {
+    $me.removeClass('faded');
+  },
+  beforeClose: function($me) {
+    $me.addClass('faded');
+  },
+  closingDuration: 700  // same as transition-duration
+});                     // property in CSS styles
+      </pre>
+      <button>Try me!</button>
+    </li>
+    <li>
+      <pre>
+$.stickr({
+  message: 'We are stickers in another group',
+  group: 'another-stickrs',
+  maxCount: 6  // default is 5
+});
+      </pre>
+      <button>Try us!</button>
+    </li>
+    <li>
+      <pre>
+$.stickr({
+  message: 'I am sticker in your custom container',
+  group: $('#my-stickrs')
+});
+      </pre>
+      <button>Try me!</button>
+    </li>
+  </ul>
+  <div id="my-stickrs" class="jq-stickrs"></div>
 </body>
 </html>

@@ -2,7 +2,7 @@
  * Core and default style for jQuery.stickr plugin.
  *
  * @package jquery-stickr
- * @version 0.0.1
+ * @version 0.1.0
  * @author tyranron <tyranron@gmail.com>
  * @copyright Copyright 2015 Instrumentisto Team (https://github.com/instrumentisto)
  * @license MIT
@@ -14,7 +14,7 @@
  *
  * @section core
  */
-#jq-stickrs {
+.jq-stickrs {
     display: block;
     position: fixed;
     z-index: 16000000;
@@ -22,12 +22,12 @@
     left: 0;
 }
 
-#jq-stickrs .jq-stickr {
+.jq-stickrs .jq-stickr {
     display: block;
     position: relative;
 }
 
-#jq-stickrs .jq-stickr .jq-stickr__exit {
+.jq-stickrs .jq-stickr .jq-stickr__close {
     display: block;
     position: absolute;
     top: 0;
@@ -38,7 +38,8 @@
     margin: 0;
     padding: 0;
     outline: none;
-    background-color: transparent;
+    box-shadow: none;
+    background: transparent;
     cursor: pointer;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -53,31 +54,35 @@
  *
  * @section default
  */
-#jq-stickrs {
+.jq-stickrs {
     top: 10px;
     left: 10px;
 }
 
-#jq-stickrs .jq-stickr {
-    width: 200px;
+.jq-stickrs .jq-stickr {
+    box-sizing: border-box;
+    width: 240px;
     padding: 10px;
     border-radius: 4px;
     color: #727272;
-    background-color: mediumaquamarine;
+    background-color: #fBf5c2;
     box-shadow: 0 0 4px #727272;
 }
-#jq-stickrs .jq-stickr:not(:first-child) {
+.jq-stickrs .jq-stickr:not(:first-child) {
     margin-top: 10px;
 }
+.jq-stickrs .jq-stickr.jq-stickr--closable {
+    padding-right: 28px;
+}
 
-#jq-stickrs .jq-stickr .jq-stickr__exit {
+.jq-stickrs .jq-stickr .jq-stickr__close {
     top: 50%;
     margin-top: -8px;
     right: 6px;
     background: center 0 no-repeat url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAgBAMAAADpp+X/AAAAIVBMVEUAAABycnIzMzNycnIzMzNycnIzMzNycnIzMzNycnIzMzO03mgcAAAACXRSTlMAn59gYDAwICB3KFplAAAAkUlEQVQY022NvQ2FQAyDfQfvp6Slo2aDW+EqRmCEN8JbAVGlRVSZEicQ0RApUfxZlnHPy86PWzqgWQlkoZAJ6KVrTCDJUoS2IQOOHDAST7ksRnpHjCRDHx4Gp7MirVFK8DBvO39uHYB2J9CNQmdg1KE1gaxbVdqGDDhywEg89bIYGR0xkg19eRicz4q8RylBzAENDy45FJB2FAAAAABJRU5ErkJggg==");
 }
-#jq-stickrs .jq-stickr .jq-stickr__exit:hover,
-#jq-stickrs .jq-stickr .jq-stickr__exit:focus,
-#jq-stickrs .jq-stickr .jq-stickr__exit:active {
+.jq-stickrs .jq-stickr .jq-stickr__close:hover,
+.jq-stickrs .jq-stickr .jq-stickr__close:focus,
+.jq-stickrs .jq-stickr .jq-stickr__close:active {
     background-position: center -16px;
 }
